@@ -56,25 +56,21 @@ public class Compare {
         String answer = "";
         List<String> answers = new ArrayList<>();
         while ((answer = answerReader.readLine()) != null) {
-            String[] split = answer.split("=");
-            if (split.length >= 2) {
+            String[] split = answer.split(" ");
                 answers.add(split[1]);
-            } else {
-                answers.add(" ");
-            }
         }
         return answers;
     }
 
     public static List<String> uncheckedReader(String path) throws IOException {
         BufferedReader uncheckedReader = new BufferedReader(new FileReader(path));
-        String answer = "";
-        List<String> answers = new ArrayList<>();
-        while ((answer = answerReader.readLine()) != null) {
-            String[] split = answer.split(" ");
+        String unchecked = "";
+        List<String> uncheckedList = new ArrayList<>();
+        while ((unchecked = uncheckedReader.readLine()) != null) {
+            String[] split = unchecked.split(" ");
             //有题号，所以选择split[1]，并添加到答案集合中
-            answers.add(split[1]);
+            uncheckedList.add(split[1]);
         }
-        return answers;
+        return uncheckedList;
     }
 }
