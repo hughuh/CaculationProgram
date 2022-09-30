@@ -9,19 +9,19 @@ import java.io.PrintWriter;
 public class GenerateQuestions {
     private static Random random = new Random();
 //    public static int range;
-    public static String judge(int a,int b) {//ÅÐ¶ÏÊÇ·ñÎª¼Ù·ÖÊý£¬ÈçÊÇÔò»¯ÎªÕæ·ÖÊý
+    public static String judge(int a,int b) {//ï¿½Ð¶ï¿½ï¿½Ç·ï¿½Îªï¿½Ù·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½ï¿½ï¿½ï¿½
         if(a >= b) {
             int c,d;
             c = a/b;
-            d = a % b;//Ëãa³ýbµÄÓàÊý
-            if(d == 0) //¸ÕºÃÕû³ýÊ±·µ»ØÕûÊý£¬Îª±£³Ö½á¹¹ÍêÕûÍ¬Ê±·µ»Ø" "
+            d = a % b;//ï¿½ï¿½aï¿½ï¿½bï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+            if(d == 0) //ï¿½Õºï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½ï¿½Ö½á¹¹ï¿½ï¿½ï¿½ï¿½Í¬Ê±ï¿½ï¿½ï¿½ï¿½" "
                 return c+"";
             else
-                return c+"¡¯"+d+"/"+b;//¸ñÊ½£¬Àý£º5'7/8
+                return c+"ï¿½ï¿½"+d+"/"+b;//ï¿½ï¿½Ê½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½5'7/8
         }
         return a + "/" + b ;
     }
-    public static String fraction_process(int a,int b) {//´¦Àí·ÖÊý£¬
+    public static String fraction_process(int a,int b) {//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         int y = 1;
         for (int i = a; i >= 1; i--) {
             if (a % i == 0 && b % i == 0) {
@@ -29,8 +29,8 @@ public class GenerateQuestions {
                 break;
             }
         }
-        int z = a / y;// ·Ö×Ó
-        int m = b / y;// ·ÖÄ¸
+        int z = a / y;// ï¿½ï¿½ï¿½ï¿½
+        int m = b / y;// ï¿½ï¿½Ä¸
         if (z == 0) {
             return "0";
         }
@@ -39,17 +39,17 @@ public class GenerateQuestions {
 
     }
 
-    public static void generate_questions(int num_question,int num_range) {//Ö÷Òªµ÷ÓÃº¯Êý
+    public static void generate_questions(int num_question,int num_range) {//ï¿½ï¿½Òªï¿½ï¿½ï¿½Ãºï¿½ï¿½ï¿½
         String[] results = new String[num_question];
         for(int i = 0;i<num_question;i++) {
-            String[] question_arry = new String[2];//Éú³ÉÊý×é´¢´æÌâÄ¿
-            int a= (int) (random.nextInt(num_range));//·Ö×Ó
-            int b= (int) (random.nextInt(num_range));//·ÖÄ¸
-            int c= (int) (random.nextInt(num_range));//ÁíÒ»¸ö·Ö×Ó
-            int d= (int) (random.nextInt(num_range));//ÁíÒ»¸ö·ÖÄ¸
+            String[] question_arry = new String[2];//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½é´¢ï¿½ï¿½ï¿½ï¿½Ä¿
+            int a= (int) (random.nextInt(num_range));//ï¿½ï¿½ï¿½ï¿½
+            int b= (int) (random.nextInt(num_range));//ï¿½ï¿½Ä¸
+            int c= (int) (random.nextInt(num_range));//ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+            int d= (int) (random.nextInt(num_range));//ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½Ä¸
             int characters ;
             characters = (int)(random.nextInt(4));
-            if(b!=0&&d!=0) {//·ÖÄ¸¾ù²»Îª0Ê±Éú³É´øÓÐ·ÖÊýµÄ¼ÆËãÌâ£¬Í¬Ê±¼ÆËã½á¹û
+            if(b!=0&&d!=0) {//ï¿½ï¿½Ä¸ï¿½ï¿½ï¿½ï¿½Îª0Ê±ï¿½ï¿½ï¿½É´ï¿½ï¿½Ð·ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½â£¬Í¬Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
                 if(characters==0) {
                     int fenzi=a*d+b*c;
                     int fenmu=b*d;
@@ -77,7 +77,7 @@ public class GenerateQuestions {
                 if(characters==2) {
                     int fenzi=a*c;
                     int fenmu=b*d;
-                    question_arry[0]=judge(a,b)+' '+'¡Á'+' '+judge(c,d)+' '+'='+' ';
+                    question_arry[0]=judge(a,b)+' '+'ï¿½ï¿½'+' '+judge(c,d)+' '+'='+' ';
                     System.out.println(question_arry[0]);
                     results[i]=fraction_process(fenzi, fenmu);
 
@@ -85,7 +85,7 @@ public class GenerateQuestions {
                 if(characters==3&&c!=0) {
                     int fenzi=a*d;
                     int fenmu=b*c;
-                    question_arry[0]=judge(a,b)+' '+'¡Â'+' '+judge(c,d)+' '+'='+' ';
+                    question_arry[0]=judge(a,b)+' '+'ï¿½ï¿½'+' '+judge(c,d)+' '+'='+' ';
                     System.out.println(question_arry[0]);
                     results[i]=fraction_process(fenzi, fenmu);
 
@@ -95,12 +95,12 @@ public class GenerateQuestions {
                 }
 
             }
-            else {//·ÖÄ¸ÖÁÉÙÒ»¸öÎª0Ê±Éú³ÉÖ»º¬ÓÐÕûÊ½µÄÔËËãÊ½£¬Í¬Ê±¼ÆËã½á¹û
+            else {//ï¿½ï¿½Ä¸ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½Îª0Ê±ï¿½ï¿½ï¿½ï¿½Ö»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê½ï¿½ï¿½Í¬Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
                 b=1; d=1;
                 if(characters==0) {
                     int fenzi=a*d+b*c;
                     int fenmu=b*d;
-                    question_arry[0]=a+' '+"+"+' '+c+' '+"="+' ';
+                    question_arry[0]=a+" "+'+'+" "+c+" "+'='+" ";
                     System.out.println(question_arry[0]);
                     results[i]=fraction_process(fenzi, fenmu);
 
@@ -108,7 +108,7 @@ public class GenerateQuestions {
                 if(characters==1&&a*d-b*c>=0) {
                     int fenzi=a*d-b*c;
                     int fenmu=b*d;
-                    question_arry[0]=a+' '+"-"+' '+c+' '+"="+' ';
+                    question_arry[0]=a+" "+'-'+" "+c+" "+'='+" ";
                     System.out.println(question_arry[0]);
                     results[i]=fraction_process(fenzi, fenmu);
 
@@ -116,7 +116,7 @@ public class GenerateQuestions {
                 if(characters==1&&a*d-b*c<0) {
                     int fenzi=b*c-a*d;
                     int fenmu=b*d;
-                    question_arry[0]=c+' '+"-"+' '+a+' '+"="+' ';
+                    question_arry[0]=c+" "+'-'+" "+a+" "+'='+" ";
                     System.out.println(question_arry[0]);
                     results[i]=fraction_process(fenzi, fenmu);
 
@@ -124,7 +124,7 @@ public class GenerateQuestions {
                 if(characters==2) {
                     int fenzi=a*c;
                     int fenmu=b*d;
-                    question_arry[0]=c+' '+"¡Á"+' '+a+' '+"="+' ';
+                    question_arry[0]=c+" "+'ï¿½ï¿½'+" "+a+" "+'='+" ";
                     System.out.println(question_arry[0]);
                     results[i]=fraction_process(fenzi, fenmu);
 
@@ -132,7 +132,7 @@ public class GenerateQuestions {
                 if(characters==3&&c!=0) {
                     int fenzi=a*d;
                     int fenmu=b*c;
-                    question_arry[0]=a+' '+"¡Â"+' '+c+' '+"="+' ';
+                    question_arry[0]=a+" "+'ï¿½ï¿½'+" "+c+" "+'='+" ";
                     System.out.println(question_arry[0]);
                     results[i]=fraction_process(fenzi, fenmu);
 
@@ -144,11 +144,18 @@ public class GenerateQuestions {
 
             }
 
-            //½«ÌâÄ¿Ð´ÈëÎÄ¼þ
+            //ï¿½ï¿½ï¿½ï¿½Ä¿Ð´ï¿½ï¿½ï¿½Ä¼ï¿½
             FileWriter doc1 = null;
             try {
 
-                File f=new File("exercise.txt");//ÌâÄ¿Ð´Èë
+                File f=new File("exercise.txt");//ï¿½ï¿½Ä¿Ð´ï¿½ï¿½
+                if(!f.exists()) {
+    	        	f.createNewFile();
+    	        }
+                FileWriter filewriter = new FileWriter(f);
+    	        filewriter.write("");//æ¸…ç©º
+    	        filewriter.flush();
+    	        filewriter.close();
                 doc1 = new FileWriter(f, true);
             } catch (IOException e) {
                 e.printStackTrace();
@@ -165,12 +172,19 @@ public class GenerateQuestions {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-            }//ifÑ­»·½áÊø
+            }//ifÑ­ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
             FileWriter doc2 = null;
             try {
 
-                File f=new File("answer.txt");//´ð°¸Ð´Èë
+                File f=new File("answer.txt");//ï¿½ï¿½Ð´ï¿½ï¿½
+                if(!f.exists()) {
+    	        	f.createNewFile();
+    	        }
+                FileWriter filewriter = new FileWriter(f);
+    	        filewriter.write("");//æ¸…ç©º
+    	        filewriter.flush();
+    	        filewriter.close();
                 doc2 = new FileWriter(f, true);
             } catch (IOException e) {
                 e.printStackTrace();
@@ -187,7 +201,7 @@ public class GenerateQuestions {
                 }
             }
 
-        }//forÑ­»·½áÊø
+        }//forÑ­ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     }
 }
 
