@@ -9,19 +9,19 @@ import java.io.PrintWriter;
 public class GenerateQuestions {
     private static Random random = new Random();
 //    public static int range;
-    public static String judge(int a,int b) {//�ж��Ƿ�Ϊ�ٷ�����������Ϊ�����
+    public static String judge(int a,int b) {// ж  ? ? ?           ?     
         if(a >= b) {
             int c,d;
             c = a/b;
-            d = a % b;//��a��b������
-            if(d == 0) //�պ�����ʱ����������Ϊ���ֽṹ����ͬʱ����" "
+            d = a % b;//  a  b      
+            if(d == 0) // ?     ?          ?   ??    ??    " "
                 return c+"";
             else
-                return c+"��"+d+"/"+b;//��ʽ������5'7/8
+                return c+"  "+d+"/"+b;//  ?      5'7/8
         }
         return a + "/" + b ;
     }
-    public static String fraction_process(int a,int b) {//���������
+    public static String fraction_process(int a,int b) {//         
         int y = 1;
         for (int i = a; i >= 1; i--) {
             if (a % i == 0 && b % i == 0) {
@@ -29,8 +29,8 @@ public class GenerateQuestions {
                 break;
             }
         }
-        int z = a / y;// ����
-        int m = b / y;// ��ĸ
+        int z = a / y;//     
+        int m = b / y;//   ?
         if (z == 0) {
             return "0";
         }
@@ -39,17 +39,17 @@ public class GenerateQuestions {
 
     }
 
-    public static void generate_questions(int num_question,int num_range) {//��Ҫ���ú���
+    public static void generate_questions(int num_question,int num_range) {//  ?   ú   
         String[] results = new String[num_question];
         for(int i = 0;i<num_question;i++) {
-            String[] question_arry = new String[2];//�������鴢����Ŀ
-            int a= (int) (random.nextInt(num_range));//����
-            int b= (int) (random.nextInt(num_range));//��ĸ
-            int c= (int) (random.nextInt(num_range));//��һ������
-            int d= (int) (random.nextInt(num_range));//��һ����ĸ
+            String[] question_arry = new String[2];//       鴢    ?
+            int a= (int) (random.nextInt(num_range));//    
+            int b= (int) (random.nextInt(num_range));//  ?
+            int c= (int) (random.nextInt(num_range));//  ?      
+            int d= (int) (random.nextInt(num_range));//  ?    ?
             int characters ;
             characters = (int)(random.nextInt(4));
-            if(b!=0&&d!=0) {//��ĸ����Ϊ0ʱ���ɴ��з����ļ����⣬ͬʱ������
+            if(b!=0&&d!=0) {//  ?    ?0?   ?  з    ?    ???      
                 if(characters==0) {
                     int fenzi=a*d+b*c;
                     int fenmu=b*d;
@@ -77,7 +77,7 @@ public class GenerateQuestions {
                 if(characters==2) {
                     int fenzi=a*c;
                     int fenmu=b*d;
-                    question_arry[0]=judge(a,b)+' '+'��'+' '+judge(c,d)+' '+'='+' ';
+                    question_arry[0]=judge(a,b)+' '+'  '+' '+judge(c,d)+' '+'='+' ';
                     System.out.println(question_arry[0]);
                     results[i]=fraction_process(fenzi, fenmu);
 
@@ -85,7 +85,7 @@ public class GenerateQuestions {
                 if(characters==3&&c!=0) {
                     int fenzi=a*d;
                     int fenmu=b*c;
-                    question_arry[0]=judge(a,b)+' '+'��'+' '+judge(c,d)+' '+'='+' ';
+                    question_arry[0]=judge(a,b)+' '+'  '+' '+judge(c,d)+' '+'='+' ';
                     System.out.println(question_arry[0]);
                     results[i]=fraction_process(fenzi, fenmu);
 
@@ -95,7 +95,7 @@ public class GenerateQuestions {
                 }
 
             }
-            else {//��ĸ����һ��Ϊ0ʱ����ֻ������ʽ������ʽ��ͬʱ������
+            else {//  ?    ?  ?0?    ?      ?      ?  ??      
                 b=1; d=1;
                 if(characters==0) {
                     int fenzi=a*d+b*c;
@@ -124,7 +124,7 @@ public class GenerateQuestions {
                 if(characters==2) {
                     int fenzi=a*c;
                     int fenmu=b*d;
-                    question_arry[0]=c+" "+'��'+" "+a+" "+'='+" ";
+                    question_arry[0]=c+" "+'  '+" "+a+" "+'='+" ";
                     System.out.println(question_arry[0]);
                     results[i]=fraction_process(fenzi, fenmu);
 
@@ -132,7 +132,7 @@ public class GenerateQuestions {
                 if(characters==3&&c!=0) {
                     int fenzi=a*d;
                     int fenmu=b*c;
-                    question_arry[0]=a+" "+'��'+" "+c+" "+'='+" ";
+                    question_arry[0]=a+" "+'  '+" "+c+" "+'='+" ";
                     System.out.println(question_arry[0]);
                     results[i]=fraction_process(fenzi, fenmu);
 
@@ -144,11 +144,11 @@ public class GenerateQuestions {
 
             }
 
-            //����Ŀд���ļ�
+            //    ?д   ? 
             FileWriter doc1 = null;
             try {
 
-                File f=new File("exercise.txt");//��Ŀд��
+                File f=new File("exercise.txt");//  ?д  
                 if(!f.exists()) {
     	        	f.createNewFile();
     	        }
@@ -172,12 +172,12 @@ public class GenerateQuestions {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-            }//ifѭ������
+            }//if?      
 
             FileWriter doc2 = null;
             try {
 
-                File f=new File("answer.txt");//��д��
+                File f=new File("answer.txt");//  д  
                 if(!f.exists()) {
     	        	f.createNewFile();
     	        }
@@ -201,7 +201,7 @@ public class GenerateQuestions {
                 }
             }
 
-        }//forѭ������
+        }//for?      
     }
 }
 
